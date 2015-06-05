@@ -13,4 +13,4 @@ $ ruby arabic2english.rb 100
 one hundred
 ```
 
-Please implement it step by step with RSpec as you do TDD.
+Please implement it step by step with RSpec in multiple commits as you do TDD, so we can get an idea of how you code.

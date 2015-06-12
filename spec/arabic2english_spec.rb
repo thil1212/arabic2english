@@ -10,15 +10,25 @@ describe Arabic2english do
   	(Arabic2english::converter 77).should == 'seventy seven'
   end
 
-
   it "should support for 10^2" do
     (Arabic2english::converter 501).should == 'five hundred one'
   end
 
-  it "should support for 10^3"
-  it "should support for 10^4"
-  it "should support for 10^5"
-  it "should support for 10^6 is 1 million"
+  it "should support for 10^3" do 
+    (Arabic2english::converter 9979).should == 'nine thousand nine hundred seventy nine'
+  end
+
+  it "should support for 10^4" do
+    (Arabic2english::converter 99999).should == 'ninety nine thousand nine hundred ninety nine'
+  end
+
+  it "should support for 10^5" do
+    (Arabic2english::converter 112145).should == 'one hundred twelve thousand one hundred forty five'
+  end
+  it "should support for 10^6 is 1 million" do
+  	
+  end
+
   it "should support for 10^7"
   it "should support for 10^8"
   it "should support for 10^9 is 1 billion"

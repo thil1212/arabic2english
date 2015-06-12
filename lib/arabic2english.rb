@@ -26,8 +26,15 @@ module Arabic2english
         	reminder = arabic_numbers % 100;
         	@required_numerals[(arabic_numbers - reminder)/100].to_s + " hundred "+  converter(reminder)
  	   when 3
+ 	   	    reminder = arabic_numbers % 1000;
+        	@required_numerals[(arabic_numbers - reminder)/1000].to_s + " thousand "+  converter(reminder)
  	   when 4
+ 	      	reminder = arabic_numbers % 1000;
+        	converter((arabic_numbers - reminder)/1000) + " thousand "+  converter(reminder)
  	   when 5
+ 	   	    reminder = arabic_numbers % 1000;
+        	converter((arabic_numbers - reminder)/1000) + " thousand "+  converter(reminder)
+
  	   when 6
  	   when 7
  	   when 8

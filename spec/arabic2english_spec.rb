@@ -11,7 +11,10 @@ describe Arabic2english do
   end
 
 
-  it "should support for 10^2"
+  it "should support for 10^2" do
+    (Arabic2english::converter 501).should == 'five hundred one'
+  end
+
   it "should support for 10^3"
   it "should support for 10^4"
   it "should support for 10^5"

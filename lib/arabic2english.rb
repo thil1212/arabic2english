@@ -23,6 +23,8 @@ module Arabic2english
         	@required_numerals[arabic_numbers - reminder].to_s + " "+converter(reminder)
         end
  	   when 2
+        	reminder = arabic_numbers % 100;
+        	@required_numerals[(arabic_numbers - reminder)/100].to_s + " hundred "+  converter(reminder)
  	   when 3
  	   when 4
  	   when 5

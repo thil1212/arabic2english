@@ -1,4 +1,4 @@
-require "arabic2english/version"
+#require "arabic2english/version"
 
 module Arabic2english
   @required_numerals = Hash[1=>:one, 2=>:two, 3=>:three, 4=>:four, 5=>:five, 6=>:six, 7=>:seven, 8=>:eight, 
@@ -25,19 +25,27 @@ module Arabic2english
  	   when 2
         	reminder = arabic_numbers % 100;
         	@required_numerals[(arabic_numbers - reminder)/100].to_s + " hundred "+  converter(reminder)
- 	   when 3
- 	   	    reminder = arabic_numbers % 1000;
-        	@required_numerals[(arabic_numbers - reminder)/1000].to_s + " thousand "+  converter(reminder)
- 	   when 4
- 	      	reminder = arabic_numbers % 1000;
-        	converter((arabic_numbers - reminder)/1000) + " thousand "+  converter(reminder)
- 	   when 5
+ 	   when 3, 4, 5
  	   	    reminder = arabic_numbers % 1000;
         	converter((arabic_numbers - reminder)/1000) + " thousand "+  converter(reminder)
-
- 	   when 6
- 	   when 7
- 	   when 8
+ 	   when 6, 7, 8
+          reminder = arabic_numbers % 10**6;
+        	converter((arabic_numbers - reminder)/10**6) + " million "+  converter(reminder)
+     when 9,10,11
+     	    reminder = arabic_numbers % 10**9;
+        	converter((arabic_numbers - reminder)/10**9) + " billion "+  converter(reminder)
+     when 12,13,14
+     	    reminder = arabic_numbers % 10**12;
+        	converter((arabic_numbers - reminder)/10**12) + " trillion "+  converter(reminder)
+     when 15,16,17
+     	    reminder = arabic_numbers % 10**15;
+        	converter((arabic_numbers - reminder)/10**15) + " quadrillion "+  converter(reminder)
+     when 18,19,20
+     	    reminder = arabic_numbers % 10**18;
+        	converter((arabic_numbers - reminder)/10**18) + " quintillion "+  converter(reminder)
+     else 
+     	    reminder = arabic_numbers % 10**21;
+        	converter((arabic_numbers - reminder)/10**21) + " sextillion "+  converter(reminder)
 
  	 end
 
@@ -46,3 +54,8 @@ module Arabic2english
 
 end
 
+if ARGV.length > 0
+  puts Arabic2english::converter(ARGV[0].to_i)
+else
+	puts "Command line argument is missing!"
+end

@@ -26,14 +26,19 @@ describe Arabic2english do
     (Arabic2english::converter 112145).should == 'one hundred twelve thousand one hundred forty five'
   end
   it "should support for 10^6 is 1 million" do
-  	
+  	(Arabic2english::converter 2109999 ).should == 'one hundred twelve thousand one hundred forty five'
   end
 
   it "should support for 10^7"
   it "should support for 10^8"
-  it "should support for 10^9 is 1 billion"
+  it "should support for 10^9 is 1 billion" do
+   (Arabic2english::converter 1000000000 ).should == 'one billion '
+  end
+
   it "should support for 10^10 "
   it "should support for 10^11"
-  it "should support for 10^12 is 1 trillion"
+  it "should support for 10^12 is 1 trillion" do
+  	(Arabic2english::converter 1001001100000 ).should == 'one trillion one billion one million one hundred  thousand '
+  end
 
 end

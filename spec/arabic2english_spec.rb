@@ -2,7 +2,11 @@ require_relative '../lib/arabic2english'
 
 describe Arabic2english do
 
-  it "Should support for 10^0"
+  it "Should support for 10^0" do
+  	(Arabic2english::converter 5).should == 'five'
+
+  end
+
   it "Should support for 10^1"
   it "should support for 10^2"
   it "should support for 10^3"

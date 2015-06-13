@@ -5,4 +5,5 @@ Welcome to Arabic numerals to english ! In this directory you find the arabic2en
 To run please follow below command.
 
 lib/> arabic2english.rb 12 
+
 lib/> twelve  //output 

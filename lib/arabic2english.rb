@@ -46,16 +46,17 @@ module Arabic2english
      else 
      	    reminder = arabic_numbers % 10**21;
         	converter((arabic_numbers - reminder)/10**21) + " sextillion "+  converter(reminder)
-
- 	 end
+ 	    end
 
  end
-
-
 end
 
-if ARGV.length > 0
-  puts Arabic2english::converter(ARGV[0].to_i)
-else
-	puts "Command line argument is missing!"
+begin
+	if ARGV.length > 0
+		puts Arabic2english::converter(ARGV[0].to_i).strip
+  else
+	  puts "Command line argument is missing!"
+  end
+rescue => message
+	puts message
 end
